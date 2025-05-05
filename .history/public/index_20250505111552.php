@@ -1,3 +1,0 @@
-<?php
-
-App\App::init();

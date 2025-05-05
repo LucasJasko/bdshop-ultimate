@@ -5,6 +5,8 @@ namespace App;
 class App
 {
 
+  private static $db;
+
   public static function init()
   {
     session_start();
@@ -21,5 +23,13 @@ class App
   {
     $class = str_replace("\\", "/", $class);
     require ROOT . "/class/" . $class . ".php";
+  }
+
+  public static function db()
+  {
+    if (self::$db === null) {
+      self::$db = new Database\Database(DB_HOST, DB_NAME, DB_USER, DB_PASS);
+    }
+    return self::$db;
   }
 }
