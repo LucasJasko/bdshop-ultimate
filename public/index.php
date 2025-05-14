@@ -10,6 +10,7 @@ if (!empty($_GET["page"])) {
 }
 
 if ($page == "home") {
+  header("Location:./index.php?page=listing");
 } else if ($page == "listing") {
   $controller = new \App\Controller\Product();
   $controller->listing();

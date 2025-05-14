@@ -27,6 +27,7 @@ class App
 
   public static function db()
   {
+    // CECI EST UN SINGLETON: on vérifie si la valeur existe, sinon on la créé
     if (self::$db === null) {
       self::$db = new Database\Database(DB_HOST, DB_NAME, DB_USER, DB_PASS);
     }

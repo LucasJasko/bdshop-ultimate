@@ -13,4 +13,6 @@
   <a href="/index.php?page=listing">liste des produits</a>
 </body>
 
+<?php var_dump(new \App\Entity\Product($product)); ?>
+
 </html>

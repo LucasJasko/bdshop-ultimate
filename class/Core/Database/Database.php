@@ -21,11 +21,11 @@ abstract class Database
 
   public function fetch($sql, $bound = false)
   {
-    $this->execute($sql, $bound, false);
+    return $this->execute($sql, $bound, false);
   }
 
   public function fetchAll($sql, $bound = false)
   {
-    $this->execute($sql, $bound, true);
+    return $this->execute($sql, $bound, true);
   }
 }

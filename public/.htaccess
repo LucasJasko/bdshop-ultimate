@@ -1,0 +1,4 @@
+RewriteEngine On
+RewriteRule ^liste-des-produits/?$ /index.php?page=listing [L]
+RewriteRule ^detail-du-produit/([0-9]+)/?$ /index.php?page=detail&id=$1 [L]
+# [L] signifie qu'on ne cherche plus

@@ -11,6 +11,28 @@
   <h1>Listing</h1>
   <a href="/">Accueil</a>
   <a href="/index.php?page=detail">Détails</a>
+
+  <table border="1">
+
+    <?php
+    for ($i = 0; $i < count($products); $i++):
+      ?>
+
+      <tr>
+        <?php foreach ($products[$i] as $key => $value): ?>
+
+          <td> <?= $value ?>
+          </td>
+
+        <?php endforeach ?>
+
+      </tr>
+
+
+    <?php endfor ?>
+
+  </table>
+
 </body>
 
 </html>

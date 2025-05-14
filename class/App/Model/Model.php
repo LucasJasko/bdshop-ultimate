@@ -10,11 +10,14 @@ class Model
 
   public static function getAll()
   {
-    $sql = "SELECT * FROM " . self::$table;
+    // ici get called class sert à accéder à la définition de la class
+    $sql = "SELECT * FROM " . get_called_class()::$table;
     return \App\App::db()->fetchAll($sql);
   }
   public static function getOne($id)
   {
-    // TO DO : A compléter
+    $sql = "SELECT * FROM " . get_called_class()::$table . " WHERE " . get_called_class()::$prefix . "id = :id";
+
+    return \App\App::db()->fetch($sql, [":id" => $id]);
   }
 }
