@@ -1,4 +1,10 @@
 RewriteEngine On
-RewriteRule ^liste-des-produits/?$ /index.php?page=listing [L]
-RewriteRule ^detail-du-produit/([0-9]+)/?$ /index.php?page=detail&id=$1 [L]
-# [L] signifie qu'on ne cherche plus
+RewriteRule ^bandes-dessinees/?$ /index.php?controller=product&method=listing [L]
+RewriteRule ^bande-dessinee/([0-9]+)/?$ /index.php?controller=product&method=detail&id=$1 [L]
+
+# RewriteRule ^liste-des-produits/?$ /index.php?page=listing [L]
+# RewriteRule ^detail-du-produit/([0-9]+)/?$ /index.php?page=detail&id=$1 [L]
+# [L] (last) signifie qu'on ne cherche plus
+# [QSA] (query string append) permet de transmettre ce qu'il y a après l'url testé (ou à la fin), à la fin de l'url ciblé.
+
+# On écrit les url les plus spécifiques en premier et les plus général en derniers (pour facilier l'accès)

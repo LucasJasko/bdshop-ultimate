@@ -9,7 +9,7 @@
 
 <body>
   <h1>Accueil</h1>
-  <a href="/index.php?page=listing">Listing</a>
+  <a href="/bandes-dessinees">Listing</a>
 </body>
 
 </html>

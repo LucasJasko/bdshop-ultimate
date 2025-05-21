@@ -10,7 +10,7 @@
 <body>
   <h1>Listing</h1>
   <a href="/">Accueil</a>
-  <a href="/index.php?page=detail">Détails</a>
+  <a href="/bandes-dessinees">Détails</a>
 
   <table border="1">
 
