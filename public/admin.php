@@ -8,4 +8,4 @@ if (\App\Auth\Auth::isLoggedIn()) {
   exit();
 }
 
-\App\Router\Router::run();
+\App\Router\RouterAdmin::run();

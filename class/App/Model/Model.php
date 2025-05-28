@@ -14,6 +14,7 @@ class Model
     $sql = "SELECT * FROM " . get_called_class()::$table;
     return \App\App::db()->fetchAll($sql);
   }
+
   public static function getOne($id)
   {
     $sql = "SELECT * FROM " . get_called_class()::$table . " WHERE " . get_called_class()::$prefix . "id = :id";
