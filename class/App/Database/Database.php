@@ -2,24 +2,32 @@
 
 namespace App\Database;
 
-use PDOException;
-
 class Database extends \Core\Database\Database
 {
 
+  /**
+   * @return \PDO Rretourne un objet PDO
+   */
   public function connect()
   {
     if ($this->db === null) {
+
       try {
         $this->db = new \PDO("mysql:host=" . $this->dbhost . ";dbname=" . $this->dbname . ";charset=utf8", $this->dbuser, $this->dbpass);
-      } catch (PDOException $e) {
-        die($e->getMessage());
+      } catch (\PDOException $error) {
+        die($error->getMessage());
       }
+
     }
     return $this->db;
   }
 
-  protected function execute($sql, array|bool $bound = false, $all = true)
+  /**
+   * @param string $sql La requête SQL à exécuter en chaine de caractère
+   * @param array|bool $bound Les valeur à associer à la requête avant exécution
+   * @param bool $all Si false, alors la valeur retourné est un seul résultat. Sinon c'est un tableau de toute les valeurs
+   */
+  protected function execute(string $sql, array|bool $bound = false, bool $all = true)
   {
     $stmt = $this->connect()->prepare($sql);
 
@@ -32,13 +40,10 @@ class Database extends \Core\Database\Database
         }
       }
     }
+
     $stmt->execute();
 
+    return $all ? $stmt->fetchAll(\PDO::FETCH_ASSOC) : $stmt->fetch(\PDO::FETCH_ASSOC);
 
-    if ($all) {
-      return $stmt->fetchAll(\PDO::FETCH_ASSOC);
-    } else {
-      return $stmt->fetch(\PDO::FETCH_ASSOC);
-    }
   }
 }

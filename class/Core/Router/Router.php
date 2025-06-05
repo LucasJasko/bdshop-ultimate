@@ -2,7 +2,7 @@
 
 namespace Core\Router;
 
-class Router
+abstract class Router
 {
 
 }

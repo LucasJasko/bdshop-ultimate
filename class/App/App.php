@@ -10,19 +10,18 @@ class App
   public static function init()
   {
     session_start();
-    require "../config/config.php";
-    self::register();
+    require_once "../config/config.php";
+    self::autoloader();
   }
 
-  public static function register()
+  private static function autoloader()
   {
     spl_autoload_register([__CLASS__, "autoload"]);
   }
 
-  public static function autoload($class)
+  private static function autoload(string $class)
   {
-    $class = str_replace("\\", "/", $class);
-    require ROOT . "/class/" . $class . ".php";
+    require_once ROOT . "/class/" . str_replace("\\", DIRECTORY_SEPARATOR, $class) . ".php";
   }
 
   public static function db()
