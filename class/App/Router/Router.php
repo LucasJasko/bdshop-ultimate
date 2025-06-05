@@ -23,14 +23,17 @@ class Router extends \Core\Router\Router
     $controller = $_GET["controller"];
     $method = $_GET["method"];
 
-    if ($controller == "product" && $method == "listing")
+    if ($controller == "product" && $method == "listing") {
       return (new \App\Controller\Product())->listing();
+    }
 
-    if ($controller == "product" && $method == "detail" && isset($_GET["id"]))
+    if ($controller == "product" && $method == "detail" && isset($_GET["id"])) {
       return (new \App\Controller\Product())->detail($_GET["id"]);
+    }
 
-    if ($controller == "admin" && $method == "login")
+    if ($controller == "admin" && $method == "login") {
       return (new \App\Controller\Admin())->login();
+    }
 
   }
 }
