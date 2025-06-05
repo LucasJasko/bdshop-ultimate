@@ -2,14 +2,17 @@
 
 namespace Core\Controller;
 
-class Controller
+abstract class Controller
 {
+  protected string $viewPath;
 
-  public $viewPath;
-
-  public function render($view, $variables = [])
+  /**
+   * @param string $viewFileName Le nom du fichier vue à récupérer
+   * @param array $variables Les paramètres (variables) à fournir à la vue
+   */
+  protected function render(string $viewFileName, array $variables = [])
   {
     extract($variables);
-    require $this->viewPath . $view . ".php";
+    include_once $this->viewPath . $viewFileName . ".php";
   }
 }

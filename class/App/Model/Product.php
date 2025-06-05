@@ -4,7 +4,6 @@ namespace App\Model;
 
 class Product extends Model
 {
-
-  public static $table = "table_product";
-  public static $prefix = "product_";
+  public static string $table = "table_product";
+  public static string $prefix = "product_";
 }

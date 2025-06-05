@@ -2,11 +2,11 @@
 
 namespace App\Model;
 
-class Model
+abstract class Model
 {
 
-  public static $table;
-  public static $prefix;
+  public static string $table;
+  public static string $prefix;
 
   public static function getAll()
   {

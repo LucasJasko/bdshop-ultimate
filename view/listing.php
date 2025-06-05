@@ -4,32 +4,49 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/style.scss">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+    rel="stylesheet">
   <title>Document</title>
 </head>
 
 <body>
-  <h1>Listing</h1>
-  <a href="/">Accueil</a>
-  <a href="/bandes-dessinees">Détails</a>
+  <div class="listing-title__container">
+    <h1 class="listing-title">Liste des produits</h1>
+  </div>
 
-  <table border="1">
+  <navbar class="navbar">
+    <a href="/">Accueil</a>
+  </navbar>
 
-    <?php
-    for ($i = 0; $i < count($products); $i++):
-      ?>
+  <table class="listing">
+
+    <tr>
+
+      <th>Id</th>
+      <th>Titre</th>
+      <th>Série</th>
+      <th>Auteur</th>
+      <th>Photo</th>
+
+    </tr>
+
+    <?php foreach ($products as $row): ?>
 
       <tr>
-        <?php foreach ($products[$i] as $key => $value): ?>
 
-          <td> <?= $value ?>
-          </td>
+        <td> <?= $row["product_id"]; ?> </td>
+        <td> <?= $row["product_name"]; ?> </td>
+        <td> <?= $row["product_serie"]; ?> </td>
+        <td> <?= $row["product_author"]; ?> </td>
+        <td> <?= $row["product_image"]; ?> </td>
 
-        <?php endforeach ?>
+        <td> <a href="/bande-dessinee/<?= $row["product_id"]; ?>" class="product-pencil">&#9998;</a> </td>
 
       </tr>
 
-
-    <?php endfor ?>
+    <?php endforeach ?>
 
   </table>
 
